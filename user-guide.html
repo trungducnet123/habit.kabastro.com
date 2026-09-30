@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>User Guide &amp; Why Raw Data Matters — Life Touch</title>
+<meta name="description" content="How to use Life Touch, and why keeping a raw, timestamped record of your habits can help you and your clinician.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE3;
+    --paper-raised:#FBF9F2;
+    --line:#DED4B8;
+    --ink:#211E19;
+    --ink-soft:#6B6455;
+    --stamp:#C11F3A;
+    --stamp-dark:#8A1327;
+    --focus:#1E2A40;
+    color-scheme: light;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --paper:#17140F;
+      --paper-raised:#211D16;
+      --line:#3A3324;
+      --ink:#F1ECDF;
+      --ink-soft:#B4AA93;
+      --stamp:#FF4B62;
+      --stamp-dark:#FF7385;
+      --focus:#FF4B62;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#17140F;
+    --paper-raised:#211D16;
+    --line:#3A3324;
+    --ink:#F1ECDF;
+    --ink-soft:#B4AA93;
+    --stamp:#FF4B62;
+    --stamp-dark:#FF7385;
+    --focus:#FF4B62;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(24px + env(safe-area-inset-top,0px));}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  a{color:var(--stamp);}
+  ::selection{background:var(--stamp);color:#fff;}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:3px;}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 clamp(20px,5vw,40px);}
+
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px clamp(20px,5vw,40px);
+    padding-top:calc(22px + env(safe-area-inset-top,0px));
+    max-width:800px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;align-items:baseline;gap:9px;
+    font-weight:800;font-size:1.1rem;letter-spacing:-0.01em;
+    text-decoration:none;color:var(--ink);
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--stamp);display:inline-block;transform:translateY(-1px);}
+  .back-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;font-weight:600;
+    text-decoration:none;
+    color:var(--ink-soft);
+    border:1.5px solid var(--line);
+    padding:8px 16px;border-radius:100px;white-space:nowrap;
+  }
+  .back-link:hover{border-color:var(--ink);color:var(--ink);}
+
+  .top-right{display:flex;align-items:center;gap:12px;}
+  .lang-switch{
+    display:inline-flex;border:1.5px solid var(--line);border-radius:100px;padding:3px;gap:2px;
+  }
+  .lang-switch button{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;
+    border:none;background:transparent;color:var(--ink-soft);
+    padding:6px 11px;border-radius:100px;cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+  .lang-switch button:not([aria-pressed="true"]):hover{color:var(--ink);}
+
+  header.doc-head{padding:clamp(20px,5vw,36px) 0 clamp(28px,4vw,40px);}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;color:var(--stamp);font-weight:600;margin:0 0 10px;
+  }
+  h1{
+    font-size:clamp(1.9rem,4.4vw,2.6rem);
+    font-weight:800;letter-spacing:-0.02em;line-height:1.08;margin:0 0 14px;
+  }
+  .updated{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.82rem;color:var(--ink-soft);
+  }
+  .lede{
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    line-height:1.6;
+    margin-top:18px;
+  }
+
+  nav.toc{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 22px;
+    margin:28px 0 8px;
+  }
+  nav.toc p{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+    letter-spacing:0.02em;
+  }
+  nav.toc ol{
+    margin:0;padding:0 0 0 1.1em;
+    columns:2;
+    column-gap:24px;
+  }
+  nav.toc li{margin-bottom:6px;break-inside:avoid;}
+  nav.toc a{color:var(--ink);text-decoration:none;font-size:0.94rem;}
+  nav.toc a:hover{color:var(--stamp);}
+
+  main{padding:12px 0 clamp(50px,7vw,80px);}
+  section{
+    padding:clamp(28px,4vw,40px) 0;
+    border-top:1px solid var(--line);
+    scroll-margin-top:24px;
+  }
+  section:first-of-type{border-top:1px solid var(--line);}
+  h2{
+    font-size:clamp(1.25rem,2.4vw,1.5rem);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+  }
+  h2 .num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--stamp);
+    font-weight:600;
+    font-size:0.85em;
+    margin-right:10px;
+  }
+  h3{
+    font-size:1.02rem;
+    font-weight:700;
+    margin:20px 0 8px;
+  }
+  p{color:var(--ink-soft);line-height:1.7;font-size:1rem;margin:0 0 14px;}
+  ul, ol.plain{color:var(--ink-soft);line-height:1.7;font-size:1rem;padding-left:1.3em;margin:0 0 14px;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:700;}
+  code{
+    font-family:'IBM Plex Mono',monospace;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:1px 6px;
+    font-size:0.9em;
+    color:var(--ink);
+  }
+
+  .callout{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-left:4px solid var(--stamp);
+    border-radius:12px;
+    padding:16px 20px;
+    margin:0 0 16px;
+  }
+  .callout p{margin:0;color:var(--ink);}
+  .callout p + p{margin-top:8px;}
+
+  .ledger{margin:18px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);}
+  .ledger-row{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:12px 2px;border-bottom:1px solid var(--line);
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .label{color:var(--ink);font-weight:600;font-size:0.95rem;}
+  .ledger-row .val{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    text-align:right;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:clamp(32px,5vw,48px) 0 calc(clamp(28px,4vw,40px) + env(safe-area-inset-bottom,0px));
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:0.9rem;}
+  .foot-links a{text-decoration:none;color:var(--ink-soft);}
+  .foot-links a:hover{color:var(--ink);}
+  .foot-fine{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;color:var(--ink-soft);opacity:.75;
+  }
+
+  @media (max-width:520px){
+    nav.toc ol{columns:1;}
+  }
+
+  ol.steps{counter-reset:step;list-style:none;padding:0;margin:0 0 14px;}
+  ol.steps li{counter-increment:step;position:relative;padding:14px 0 14px 48px;border-bottom:1px solid var(--line);color:var(--ink-soft);line-height:1.65;}
+  ol.steps li:first-child{border-top:1px solid var(--line);}
+  ol.steps li::before{content:counter(step);position:absolute;left:0;top:13px;width:32px;height:32px;border-radius:50%;border:2px solid var(--stamp);color:var(--stamp);font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:0.85rem;display:flex;align-items:center;justify-content:center;}
+  .ledger-row .val.wide{max-width:60%;font-family:'Be Vietnam Pro',sans-serif;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/"><span class="dot"></span>Life Touch</a>
+  <div class="top-right">
+    <div class="lang-switch" role="group" aria-label="Language / Ngôn ngữ">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="back-link" href="/" data-i18n="nav.back">← Back to site</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="doc-head">
+    <p class="kicker" data-i18n="kicker">GUIDE</p>
+    <h1 data-i18n="h1">How to use Life Touch — and why your raw data matters</h1>
+    <p class="updated" data-i18n="updated">Last updated: September 30, 2026</p>
+    <p class="lede" data-i18n="lede">A short guide to logging, reading, and sharing your data, plus an honest explanation of how a raw, timestamped record can support a conversation with a doctor or other health professional.</p>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p data-i18n="toc.title">ON THIS PAGE</p>
+    <ol>
+      <li><a href="#overview" data-i18n="toc.1">The idea in one minute</a></li>
+      <li><a href="#quick-start" data-i18n="toc.2">Quick start</a></li>
+      <li><a href="#screens" data-i18n="toc.3">The four screens</a></li>
+      <li><a href="#good-data" data-i18n="toc.4">Logging tips</a></li>
+      <li><a href="#why-raw" data-i18n="toc.5">Why raw data matters</a></li>
+      <li><a href="#bring" data-i18n="toc.6">What to bring to an appointment</a></li>
+      <li><a href="#ai" data-i18n="toc.7">Using AI tools carefully</a></li>
+      <li><a href="#limits" data-i18n="toc.8">Limits &amp; when to seek care</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="overview">
+      <h2><span class="num">01</span><span data-i18n="s1.h2">The idea in one minute</span></h2>
+      <div class="callout"><p data-i18n="s1.callout"><strong>Life Touch keeps the record. Interpretation belongs to a qualified professional.</strong> The app turns “I think it happens a lot” into “here are the exact dates and times” — and it stops there. It does not diagnose, score, or advise.</p></div>
+      <p data-i18n="s1.p1">Everything is stored on your own device and works offline, so you can log anywhere, at any moment, with a single tap.</p>
+    </section>
+
+    <section id="quick-start">
+      <h2><span class="num">02</span><span data-i18n="s2.h2">Quick start</span></h2>
+      <ol class="steps">
+        <li data-i18n="s2.li1">Open the app and tap an icon on the Log tab the moment something happens. That is the whole entry — the time is recorded for you.</li>
+        <li data-i18n="s2.li2">Need something that isn't on the grid? Tap “+ Add” to create your own habit with a name and an icon.</li>
+        <li data-i18n="s2.li3">Optional: add the Life Touch widget to your home screen so you can log without opening the app.</li>
+        <li data-i18n="s2.li4">Review what you logged in the Timeline or Calendar tab, day by day.</li>
+        <li data-i18n="s2.li5">After a few days, open Stats, choose 7 days, 30 days, 90 days, all, or a custom range, and tap a habit to see its pattern.</li>
+        <li data-i18n="s2.li6">Optional: open Settings to enter your height and weight. BMI is calculated on your device.</li>
+        <li data-i18n="s2.li7">When you need to share your record, use Export (a .csv spreadsheet) or Prompt (a text summary). Both are created on your device.</li>
+      </ol>
+    </section>
+
+    <section id="screens">
+      <h2><span class="num">03</span><span data-i18n="s3.h2">The four screens</span></h2>
+      <div class="ledger">
+        <div class="ledger-row"><span class="label" data-i18n="s3.r1.l">Log</span><span class="val wide" data-i18n="s3.r1.v">A grid of one-tap icons for today. A red badge shows how many times you've logged each habit today.</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s3.r2.l">Timeline</span><span class="val wide" data-i18n="s3.r2.v">Everything you logged, in the order it happened.</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s3.r3.l">Calendar</span><span class="val wide" data-i18n="s3.r3.v">Pick a day and see every event from that day, with its time.</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s3.r4.l">Stats</span><span class="val wide" data-i18n="s3.r4.v">Counts and per-day frequency for any range. Tap a habit to see its usual time of day, typical gap between entries, and busiest weekday.</span></div>
+      </div>
+    </section>
+
+    <section id="good-data">
+      <h2><span class="num">04</span><span data-i18n="s4.h2">Logging tips for a useful record</span></h2>
+      <ul>
+        <li data-i18n="s4.li1"><strong>Tap right away.</strong> A record made in the moment is more reliable than one reconstructed from memory at the end of the day.</li>
+        <li data-i18n="s4.li2"><strong>Be consistent.</strong> Use the same icon for the same thing every time, so counts and timings can be compared.</li>
+        <li data-i18n="s4.li3"><strong>Keep going through quiet days.</strong> Days where nothing happened are data too; they show what “normal” looks like for you.</li>
+        <li data-i18n="s4.li4"><strong>Give it time.</strong> A pattern is easier to see over several weeks than over a few days.</li>
+        <li data-i18n="s4.li5"><strong>Remember what the app doesn't capture.</strong> It records that something happened and when — not doses, severity, or context. Keep those in a short separate note if a clinician will want them.</li>
+      </ul>
+    </section>
+
+    <section id="why-raw">
+      <h2><span class="num">05</span><span data-i18n="s5.h2">Why a raw record matters for clinical care</span></h2>
+      <p data-i18n="s5.p1">Health professionals often ask questions like “how often?”, “what time of day?”, and “since when?”. Answers from memory are hard to give accurately, which is one reason diaries for things like headaches, sleep, bladder and bowel habits, or medication are widely used in clinical practice. A timestamped log gives you those answers directly.</p>
+      <ul>
+        <li data-i18n="s5.li1"><strong>Frequency and timing, not impressions.</strong> Exact counts and times replace “a lot” and “sometimes”.</li>
+        <li data-i18n="s5.li2"><strong>Sequences you can point to.</strong> Because everything shares one timeline, a clinician can look at what happened before or after an event — for example, a headache and the hours around it.</li>
+        <li data-i18n="s5.li3"><strong>Trends over weeks.</strong> A single visit is a snapshot; a record shows whether something is steady, increasing, or fading.</li>
+        <li data-i18n="s5.li4"><strong>Neutral by design.</strong> Raw entries carry no conclusion. The person who knows your history, examination, and test results is the right one to interpret them — whether their approach is Western, Eastern, or combined.</li>
+        <li data-i18n="s5.li5"><strong>Portable and yours.</strong> Your data can leave the app as a .csv that opens in Excel or Google Sheets, so any clinician can use it, and you decide who sees it.</li>
+      </ul>
+    </section>
+
+    <section id="bring">
+      <h2><span class="num">06</span><span data-i18n="s6.h2">What to bring to an appointment</span></h2>
+      <ol class="steps">
+        <li data-i18n="s6.li1">An export (.csv) covering the period your clinician cares about — Export lets you pick the current filter, 7 days, 30 days, or your full history.</li>
+        <li data-i18n="s6.li2">A screenshot of the Stats screen or a habit's pattern view, if a quick visual is easier to discuss.</li>
+        <li data-i18n="s6.li3">A short note of anything the app doesn't record: medication names and doses, symptom severity, foods, stress, or other context.</li>
+        <li data-i18n="s6.li4">Your questions. The record shows what happened; your clinician can tell you what it may mean.</li>
+      </ol>
+    </section>
+
+    <section id="ai">
+      <h2><span class="num">07</span><span data-i18n="s7.h2">Using AI tools carefully</span></h2>
+      <p data-i18n="s7.p1">The Prompt feature lets you choose a time range and a medical perspective, then produces a text summary of your logged data that you can copy or share. It is only a formatting tool; nothing is analyzed by the app.</p>
+      <ul>
+        <li data-i18n="s7.li1"><strong>Review before you paste.</strong> The prompt can include profile details you saved in Settings, such as birth year, height, and weight. Remove anything you don't want to share.</li>
+        <li data-i18n="s7.li2"><strong>Pasting sends data outside the app.</strong> Once you paste it into another service, that service's own privacy terms apply.</li>
+        <li data-i18n="s7.li3"><strong>Treat AI answers as a starting point.</strong> They can be incomplete or wrong. Use them to prepare better questions for a professional, not to replace one.</li>
+      </ul>
+    </section>
+
+    <section id="limits">
+      <h2><span class="num">08</span><span data-i18n="s8.h2">Limits &amp; when to seek care</span></h2>
+      <div class="callout"><p data-i18n="s8.callout"><strong>Life Touch is not a medical device and does not provide medical advice.</strong> A missing entry does not prove something did not happen, and a pattern does not prove a cause. If you have severe, sudden, or worsening symptoms, contact a healthcare professional or local emergency services right away — do not wait to collect more data.</p></div>
+      <p data-i18n-html="s8.p1">Questions about this guide can be sent to <a href="mailto:habit@kabastro.com">habit@kabastro.com</a>. See also our <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-fine" data-i18n="footer.fine">LIFE TOUCH · BUILT BY KABASTRO · DATA STAYS ON YOUR DEVICE</div>
+    <div class="foot-links">
+      <a href="mailto:habit@kabastro.com">habit@kabastro.com</a>
+      <a href="/privacy-policy.html" data-i18n="nav.privacy">Privacy Policy</a>
+      <a href="/" data-i18n="nav.back2">Back to site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var translations = {"en": {"nav.back": "← Back to site", "nav.back2": "Back to site", "nav.privacy": "Privacy Policy", "kicker": "GUIDE", "h1": "How to use Life Touch — and why your raw data matters", "updated": "Last updated: September 30, 2026", "lede": "A short guide to logging, reading, and sharing your data, plus an honest explanation of how a raw, timestamped record can support a conversation with a doctor or other health professional.", "toc.title": "ON THIS PAGE", "toc.1": "The idea in one minute", "toc.2": "Quick start", "toc.3": "The four screens", "toc.4": "Logging tips", "toc.5": "Why raw data matters", "toc.6": "What to bring to an appointment", "toc.7": "Using AI tools carefully", "toc.8": "Limits & when to seek care", "s1.h2": "The idea in one minute", "s1.callout": "<strong>Life Touch keeps the record. Interpretation belongs to a qualified professional.</strong> The app turns “I think it happens a lot” into “here are the exact dates and times” — and it stops there. It does not diagnose, score, or advise.", "s1.p1": "Everything is stored on your own device and works offline, so you can log anywhere, at any moment, with a single tap.", "s2.h2": "Quick start", "s2.li1": "Open the app and tap an icon on the Log tab the moment something happens. That is the whole entry — the time is recorded for you.", "s2.li2": "Need something that isn't on the grid? Tap “+ Add” to create your own habit with a name and an icon.", "s2.li3": "Optional: add the Life Touch widget to your home screen so you can log without opening the app.", "s2.li4": "Review what you logged in the Timeline or Calendar tab, day by day.", "s2.li5": "After a few days, open Stats, choose 7 days, 30 days, 90 days, all, or a custom range, and tap a habit to see its pattern.", "s2.li6": "Optional: open Settings to enter your height and weight. BMI is calculated on your device.", "s2.li7": "When you need to share your record, use Export (a .csv spreadsheet) or Prompt (a text summary). Both are created on your device.", "s3.h2": "The four screens", "s3.r1.l": "Log", "s3.r1.v": "A grid of one-tap icons for today. A red badge shows how many times you've logged each habit today.", "s3.r2.l": "Timeline", "s3.r2.v": "Everything you logged, in the order it happened.", "s3.r3.l": "Calendar", "s3.r3.v": "Pick a day and see every event from that day, with its time.", "s3.r4.l": "Stats", "s3.r4.v": "Counts and per-day frequency for any range. Tap a habit to see its usual time of day, typical gap between entries, and busiest weekday.", "s4.h2": "Logging tips for a useful record", "s4.li1": "<strong>Tap right away.</strong> A record made in the moment is more reliable than one reconstructed from memory at the end of the day.", "s4.li2": "<strong>Be consistent.</strong> Use the same icon for the same thing every time, so counts and timings can be compared.", "s4.li3": "<strong>Keep going through quiet days.</strong> Days where nothing happened are data too; they show what “normal” looks like for you.", "s4.li4": "<strong>Give it time.</strong> A pattern is easier to see over several weeks than over a few days.", "s4.li5": "<strong>Remember what the app doesn't capture.</strong> It records that something happened and when — not doses, severity, or context. Keep those in a short separate note if a clinician will want them.", "s5.h2": "Why a raw record matters for clinical care", "s5.p1": "Health professionals often ask questions like “how often?”, “what time of day?”, and “since when?”. Answers from memory are hard to give accurately, which is one reason diaries for things like headaches, sleep, bladder and bowel habits, or medication are widely used in clinical practice. A timestamped log gives you those answers directly.", "s5.li1": "<strong>Frequency and timing, not impressions.</strong> Exact counts and times replace “a lot” and “sometimes”.", "s5.li2": "<strong>Sequences you can point to.</strong> Because everything shares one timeline, a clinician can look at what happened before or after an event — for example, a headache and the hours around it.", "s5.li3": "<strong>Trends over weeks.</strong> A single visit is a snapshot; a record shows whether something is steady, increasing, or fading.", "s5.li4": "<strong>Neutral by design.</strong> Raw entries carry no conclusion. The person who knows your history, examination, and test results is the right one to interpret them — whether their approach is Western, Eastern, or combined.", "s5.li5": "<strong>Portable and yours.</strong> Your data can leave the app as a .csv that opens in Excel or Google Sheets, so any clinician can use it, and you decide who sees it.", "s6.h2": "What to bring to an appointment", "s6.li1": "An export (.csv) covering the period your clinician cares about — Export lets you pick the current filter, 7 days, 30 days, or your full history.", "s6.li2": "A screenshot of the Stats screen or a habit's pattern view, if a quick visual is easier to discuss.", "s6.li3": "A short note of anything the app doesn't record: medication names and doses, symptom severity, foods, stress, or other context.", "s6.li4": "Your questions. The record shows what happened; your clinician can tell you what it may mean.", "s7.h2": "Using AI tools carefully", "s7.p1": "The Prompt feature lets you choose a time range and a medical perspective, then produces a text summary of your logged data that you can copy or share. It is only a formatting tool; nothing is analyzed by the app.", "s7.li1": "<strong>Review before you paste.</strong> The prompt can include profile details you saved in Settings, such as birth year, height, and weight. Remove anything you don't want to share.", "s7.li2": "<strong>Pasting sends data outside the app.</strong> Once you paste it into another service, that service's own privacy terms apply.", "s7.li3": "<strong>Treat AI answers as a starting point.</strong> They can be incomplete or wrong. Use them to prepare better questions for a professional, not to replace one.", "s8.h2": "Limits & when to seek care", "s8.callout": "<strong>Life Touch is not a medical device and does not provide medical advice.</strong> A missing entry does not prove something did not happen, and a pattern does not prove a cause. If you have severe, sudden, or worsening symptoms, contact a healthcare professional or local emergency services right away — do not wait to collect more data.", "s8.p1": "Questions about this guide can be sent to <a href=\"mailto:habit@kabastro.com\">habit@kabastro.com</a>. See also our <a href=\"/privacy-policy.html\">Privacy Policy</a>.", "footer.fine": "LIFE TOUCH · BUILT BY KABASTRO · DATA STAYS ON YOUR DEVICE"}, "vi": {"nav.back": "← Về trang chủ", "nav.back2": "Về trang chủ", "nav.privacy": "Chính sách bảo mật", "kicker": "HƯỚNG DẪN", "h1": "Cách dùng Life Touch — và vì sao dữ liệu thô quan trọng", "updated": "Cập nhật lần cuối: 30 tháng 9, 2026", "lede": "Hướng dẫn ngắn về cách ghi, xem và chia sẻ dữ liệu, kèm giải thích thẳng thắn về việc một bản ghi thô có mốc thời gian có thể hỗ trợ cuộc trao đổi với bác sĩ hoặc chuyên gia sức khoẻ như thế nào.", "toc.title": "TRONG TRANG NÀY", "toc.1": "Ý tưởng trong một phút", "toc.2": "Bắt đầu nhanh", "toc.3": "Bốn màn hình chính", "toc.4": "Mẹo ghi dữ liệu", "toc.5": "Vì sao dữ liệu thô quan trọng", "toc.6": "Nên mang gì đến buổi khám", "toc.7": "Dùng công cụ AI cẩn thận", "toc.8": "Giới hạn & khi nào cần đi khám", "s1.h2": "Ý tưởng trong một phút", "s1.callout": "<strong>Life Touch giữ bản ghi. Việc luận giải thuộc về chuyên gia có chuyên môn.</strong> App biến câu “tôi nghĩ nó xảy ra nhiều lắm” thành “đây là ngày giờ chính xác” — và dừng lại ở đó. App không chẩn đoán, không chấm điểm, không đưa lời khuyên.", "s1.p1": "Mọi thứ được lưu trên thiết bị của bạn và chạy được offline, nên bạn có thể ghi ở bất cứ đâu, bất cứ lúc nào, chỉ với một lần chạm.", "s2.h2": "Bắt đầu nhanh", "s2.li1": "Mở app và chạm một biểu tượng ở tab Ghi nhận ngay khi việc đó xảy ra. Thế là xong một lượt ghi — giờ được tự động lưu.", "s2.li2": "Cần thứ chưa có trên lưới? Chạm “+ Thêm” để tạo thói quen riêng với tên và biểu tượng.", "s2.li3": "Tuỳ chọn: thêm widget Life Touch ra màn hình chính để ghi mà không cần mở app.", "s2.li4": "Xem lại những gì đã ghi ở tab Dòng thời gian hoặc Lịch, theo từng ngày.", "s2.li5": "Sau vài ngày, mở Thống kê, chọn 7 ngày, 30 ngày, 90 ngày, tất cả hoặc tuỳ chỉnh, rồi chạm vào một thói quen để xem quy luật của nó.", "s2.li6": "Tuỳ chọn: mở Cài đặt để nhập chiều cao và cân nặng. BMI được tính ngay trên thiết bị của bạn.", "s2.li7": "Khi cần chia sẻ, dùng Export (bảng tính .csv) hoặc Prompt (bản tóm tắt dạng văn bản). Cả hai đều được tạo ngay trên thiết bị của bạn.", "s3.h2": "Bốn màn hình chính", "s3.r1.l": "Ghi nhận", "s3.r1.v": "Lưới biểu tượng chạm một lần cho hôm nay. Huy hiệu đỏ cho biết hôm nay bạn đã ghi mỗi thói quen bao nhiêu lần.", "s3.r2.l": "Dòng thời gian", "s3.r2.v": "Mọi thứ bạn đã ghi, theo đúng thứ tự xảy ra.", "s3.r3.l": "Lịch", "s3.r3.v": "Chọn một ngày để xem mọi sự kiện của ngày đó, kèm giờ.", "s3.r4.l": "Thống kê", "s3.r4.v": "Số lần và tần suất mỗi ngày cho bất kỳ khoảng thời gian nào. Chạm vào một thói quen để xem giờ thường gặp, khoảng cách điển hình giữa các lần và ngày nhiều nhất trong tuần.", "s4.h2": "Mẹo ghi để có bản ghi hữu ích", "s4.li1": "<strong>Chạm ngay.</strong> Bản ghi lúc sự việc xảy ra đáng tin hơn bản nhớ lại vào cuối ngày.", "s4.li2": "<strong>Nhất quán.</strong> Luôn dùng cùng một biểu tượng cho cùng một việc để so sánh được số lần và thời điểm.", "s4.li3": "<strong>Ghi cả những ngày yên ắng.</strong> Ngày không có gì xảy ra cũng là dữ liệu; nó cho thấy “bình thường” của bạn trông như thế nào.", "s4.li4": "<strong>Cho nó thời gian.</strong> Quy luật dễ thấy hơn qua vài tuần so với vài ngày.", "s4.li5": "<strong>Nhớ những gì app không ghi.</strong> App chỉ ghi việc gì xảy ra và lúc nào — không ghi liều lượng, mức độ hay bối cảnh. Hãy ghi riêng vài dòng nếu bác sĩ sẽ cần.", "s5.h2": "Vì sao bản ghi thô quan trọng với y khoa lâm sàng", "s5.p1": "Nhân viên y tế thường hỏi: “bao lâu một lần?”, “vào giờ nào?”, “từ khi nào?”. Trả lời chính xác bằng trí nhớ rất khó, và đó là một lý do nhật ký cho các vấn đề như đau đầu, giấc ngủ, thói quen đi tiểu/đại tiện hay việc dùng thuốc được sử dụng rộng rãi trong thực hành lâm sàng. Một bản ghi có mốc thời gian cho bạn câu trả lời ngay.", "s5.li1": "<strong>Tần suất và thời điểm, không phải cảm giác.</strong> Số lần và giờ giấc chính xác thay cho “nhiều” hay “thỉnh thoảng”.", "s5.li2": "<strong>Trình tự có thể chỉ ra được.</strong> Vì mọi thứ nằm trên một dòng thời gian, bác sĩ có thể xem điều gì xảy ra trước hoặc sau một sự kiện — ví dụ một cơn đau đầu và vài giờ xung quanh nó.", "s5.li3": "<strong>Xu hướng qua nhiều tuần.</strong> Một lần khám chỉ là ảnh chụp nhanh; bản ghi cho thấy điều đó ổn định, tăng hay giảm dần.", "s5.li4": "<strong>Trung lập theo thiết kế.</strong> Dữ liệu thô không mang kết luận. Người nắm tiền sử, khám lâm sàng và kết quả xét nghiệm của bạn mới là người phù hợp để luận giải — dù theo hướng Tây y, Đông y hay kết hợp.", "s5.li5": "<strong>Mang đi được và thuộc về bạn.</strong> Dữ liệu có thể xuất ra file .csv mở được bằng Excel hoặc Google Sheets, để bác sĩ nào cũng dùng được, và bạn quyết định ai được xem.", "s6.h2": "Nên mang gì đến buổi khám", "s6.li1": "File xuất (.csv) cho giai đoạn bác sĩ quan tâm — Export cho phép chọn theo bộ lọc hiện tại, 7 ngày, 30 ngày hoặc toàn bộ lịch sử.", "s6.li2": "Ảnh chụp màn hình Thống kê hoặc màn hình quy luật của một thói quen, nếu xem hình nhanh dễ trao đổi hơn.", "s6.li3": "Vài dòng ghi chú về những gì app không lưu: tên thuốc và liều, mức độ triệu chứng, thức ăn, căng thẳng hoặc bối cảnh khác.", "s6.li4": "Câu hỏi của bạn. Bản ghi cho thấy điều đã xảy ra; bác sĩ có thể cho bạn biết điều đó có thể có nghĩa gì.", "s7.h2": "Dùng công cụ AI cẩn thận", "s7.p1": "Tính năng Prompt cho phép chọn khoảng thời gian và góc nhìn y khoa, rồi tạo ra bản tóm tắt dạng văn bản từ dữ liệu bạn đã ghi để sao chép hoặc chia sẻ. Đó chỉ là công cụ định dạng; app không phân tích gì cả.", "s7.li1": "<strong>Xem lại trước khi dán.</strong> Prompt có thể chứa thông tin hồ sơ bạn đã lưu trong Cài đặt như năm sinh, chiều cao, cân nặng. Hãy xoá những gì bạn không muốn chia sẻ.", "s7.li2": "<strong>Dán là gửi dữ liệu ra ngoài app.</strong> Khi đã dán vào dịch vụ khác, chính sách quyền riêng tư của dịch vụ đó sẽ áp dụng.", "s7.li3": "<strong>Xem câu trả lời của AI như điểm khởi đầu.</strong> Nó có thể thiếu sót hoặc sai. Hãy dùng để chuẩn bị câu hỏi tốt hơn cho chuyên gia, không phải để thay thế họ.", "s8.h2": "Giới hạn & khi nào cần đi khám", "s8.callout": "<strong>Life Touch không phải thiết bị y tế và không đưa lời khuyên y khoa.</strong> Thiếu một lượt ghi không chứng minh việc đó không xảy ra, và một quy luật không chứng minh nguyên nhân. Nếu có triệu chứng nặng, đột ngột hoặc ngày càng xấu đi, hãy liên hệ nhân viên y tế hoặc dịch vụ cấp cứu địa phương ngay — đừng chờ ghi thêm dữ liệu.", "s8.p1": "Câu hỏi về hướng dẫn này có thể gửi tới <a href=\"mailto:habit@kabastro.com\">habit@kabastro.com</a>. Xem thêm <a href=\"/privacy-policy.html\">Chính sách bảo mật</a> của chúng tôi.", "footer.fine": "LIFE TOUCH · XÂY DỰNG BỞI KABASTRO · DỮ LIỆU Ở LẠI TRÊN THIẾT BỊ CỦA BẠN"}};
+  var STORAGE_KEY = "lifetouch-lang";
+  function applyLanguage(lang){
+    if(!translations[lang]) lang = "en";
+    var dict = translations[lang];
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      if(dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function(el){
+      var k = el.getAttribute("data-i18n-html");
+      if(dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll("[data-lang-btn]").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang-btn") === lang ? "true" : "false");
+    });
+    document.title = (lang === "vi" ? "Hướng dẫn sử dụng — Life Touch" : "User Guide — Life Touch");
+    try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+  }
+  function initialLanguage(){
+    try{ var s = localStorage.getItem(STORAGE_KEY); if(s === "en" || s === "vi") return s; }catch(e){}
+    return "en";
+  }
+  document.querySelectorAll("[data-lang-btn]").forEach(function(b){
+    b.addEventListener("click", function(){ applyLanguage(b.getAttribute("data-lang-btn")); });
+  });
+  applyLanguage(initialLanguage());
+})();
+</script>
+</body>
+</html>

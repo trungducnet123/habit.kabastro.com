@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Privacy Policy — Life Touch</title>
+<meta name="description" content="Life Touch privacy policy: all data stays on your device, the app works offline, and it never provides medical interpretation or diagnosis.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3EFE3;
+    --paper-raised:#FBF9F2;
+    --line:#DED4B8;
+    --ink:#211E19;
+    --ink-soft:#6B6455;
+    --stamp:#C11F3A;
+    --stamp-dark:#8A1327;
+    --focus:#1E2A40;
+    color-scheme: light;
+  }
+  :root:not([data-theme="light"]){
+    @media (prefers-color-scheme: dark){
+      --paper:#17140F;
+      --paper-raised:#211D16;
+      --line:#3A3324;
+      --ink:#F1ECDF;
+      --ink-soft:#B4AA93;
+      --stamp:#FF4B62;
+      --stamp-dark:#FF7385;
+      --focus:#FF4B62;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#17140F;
+    --paper-raised:#211D16;
+    --line:#3A3324;
+    --ink:#F1ECDF;
+    --ink-soft:#B4AA93;
+    --stamp:#FF4B62;
+    --stamp-dark:#FF7385;
+    --focus:#FF4B62;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(24px + env(safe-area-inset-top,0px));}
+  html,body{height:100%;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  a{color:var(--stamp);}
+  ::selection{background:var(--stamp);color:#fff;}
+  :focus-visible{outline:3px solid var(--focus);outline-offset:3px;}
+
+  .wrap{max-width:760px;margin:0 auto;padding:0 clamp(20px,5vw,40px);}
+
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px clamp(20px,5vw,40px);
+    padding-top:calc(22px + env(safe-area-inset-top,0px));
+    max-width:800px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;align-items:baseline;gap:9px;
+    font-weight:800;font-size:1.1rem;letter-spacing:-0.01em;
+    text-decoration:none;color:var(--ink);
+  }
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--stamp);display:inline-block;transform:translateY(-1px);}
+  .back-link{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;font-weight:600;
+    text-decoration:none;
+    color:var(--ink-soft);
+    border:1.5px solid var(--line);
+    padding:8px 16px;border-radius:100px;white-space:nowrap;
+  }
+  .back-link:hover{border-color:var(--ink);color:var(--ink);}
+
+  .top-right{display:flex;align-items:center;gap:12px;}
+  .lang-switch{
+    display:inline-flex;border:1.5px solid var(--line);border-radius:100px;padding:3px;gap:2px;
+  }
+  .lang-switch button{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;font-weight:600;
+    border:none;background:transparent;color:var(--ink-soft);
+    padding:6px 11px;border-radius:100px;cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  .lang-switch button[aria-pressed="true"]{background:var(--ink);color:var(--paper);}
+  .lang-switch button:not([aria-pressed="true"]):hover{color:var(--ink);}
+
+  header.doc-head{padding:clamp(20px,5vw,36px) 0 clamp(28px,4vw,40px);}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.78rem;color:var(--stamp);font-weight:600;margin:0 0 10px;
+  }
+  h1{
+    font-size:clamp(1.9rem,4.4vw,2.6rem);
+    font-weight:800;letter-spacing:-0.02em;line-height:1.08;margin:0 0 14px;
+  }
+  .updated{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.82rem;color:var(--ink-soft);
+  }
+  .lede{
+    color:var(--ink-soft);
+    font-size:1.05rem;
+    line-height:1.6;
+    margin-top:18px;
+  }
+
+  nav.toc{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px 22px;
+    margin:28px 0 8px;
+  }
+  nav.toc p{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+    letter-spacing:0.02em;
+  }
+  nav.toc ol{
+    margin:0;padding:0 0 0 1.1em;
+    columns:2;
+    column-gap:24px;
+  }
+  nav.toc li{margin-bottom:6px;break-inside:avoid;}
+  nav.toc a{color:var(--ink);text-decoration:none;font-size:0.94rem;}
+  nav.toc a:hover{color:var(--stamp);}
+
+  main{padding:12px 0 clamp(50px,7vw,80px);}
+  section{
+    padding:clamp(28px,4vw,40px) 0;
+    border-top:1px solid var(--line);
+    scroll-margin-top:24px;
+  }
+  section:first-of-type{border-top:1px solid var(--line);}
+  h2{
+    font-size:clamp(1.25rem,2.4vw,1.5rem);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+  }
+  h2 .num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--stamp);
+    font-weight:600;
+    font-size:0.85em;
+    margin-right:10px;
+  }
+  h3{
+    font-size:1.02rem;
+    font-weight:700;
+    margin:20px 0 8px;
+  }
+  p{color:var(--ink-soft);line-height:1.7;font-size:1rem;margin:0 0 14px;}
+  ul, ol.plain{color:var(--ink-soft);line-height:1.7;font-size:1rem;padding-left:1.3em;margin:0 0 14px;}
+  li{margin-bottom:6px;}
+  strong{color:var(--ink);font-weight:700;}
+  code{
+    font-family:'IBM Plex Mono',monospace;
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-radius:5px;
+    padding:1px 6px;
+    font-size:0.9em;
+    color:var(--ink);
+  }
+
+  .callout{
+    background:var(--paper-raised);
+    border:1px solid var(--line);
+    border-left:4px solid var(--stamp);
+    border-radius:12px;
+    padding:16px 20px;
+    margin:0 0 16px;
+  }
+  .callout p{margin:0;color:var(--ink);}
+  .callout p + p{margin-top:8px;}
+
+  .ledger{margin:18px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);}
+  .ledger-row{
+    display:flex;justify-content:space-between;gap:16px;
+    padding:12px 2px;border-bottom:1px solid var(--line);
+  }
+  .ledger-row:last-child{border-bottom:none;}
+  .ledger-row .label{color:var(--ink);font-weight:600;font-size:0.95rem;}
+  .ledger-row .val{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--ink-soft);
+    font-size:0.9rem;
+    text-align:right;
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:clamp(32px,5vw,48px) 0 calc(clamp(28px,4vw,40px) + env(safe-area-inset-bottom,0px));
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap;font-size:0.9rem;}
+  .foot-links a{text-decoration:none;color:var(--ink-soft);}
+  .foot-links a:hover{color:var(--ink);}
+  .foot-fine{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.72rem;color:var(--ink-soft);opacity:.75;
+  }
+
+  @media (max-width:520px){
+    nav.toc ol{columns:1;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="/">
+    <span class="dot"></span>Life Touch
+  </a>
+  <div class="top-right">
+    <div class="lang-switch" role="group" aria-label="Language / Ngôn ngữ">
+      <button type="button" data-lang-btn="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang-btn="vi" aria-pressed="false">VI</button>
+    </div>
+    <a class="back-link" href="/" data-i18n="nav.back">← Back to site</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <header class="doc-head">
+    <p class="kicker" data-i18n="kicker">LEGAL</p>
+    <h1 data-i18n="h1">Privacy Policy</h1>
+    <p class="updated" data-i18n="updated">Last updated: September 30, 2026</p>
+    <p class="lede" data-i18n="lede">Life Touch is built around one rule: your data stays on your device. This page explains, in plain language, exactly what that means — what the app stores, what it never does, and what happens when you use features like data export or the AI prompt generator.</p>
+  </header>
+
+  <nav class="toc" aria-label="Table of contents">
+    <p data-i18n="toc.title">ON THIS PAGE</p>
+    <ol>
+      <li><a href="#summary" data-i18n="toc.1">The short version</a></li>
+      <li><a href="#data-we-collect" data-i18n="toc.2">Data we collect</a></li>
+      <li><a href="#on-device" data-i18n="toc.3">On-device &amp; offline</a></li>
+      <li><a href="#no-medical-advice" data-i18n="toc.4">No medical advice</a></li>
+      <li><a href="#ai-prompt" data-i18n="toc.5">The AI prompt feature</a></li>
+      <li><a href="#export" data-i18n="toc.6">Exporting your data</a></li>
+      <li><a href="#permissions" data-i18n="toc.7">Device permissions</a></li>
+      <li><a href="#deletion" data-i18n="toc.8">Deleting your data</a></li>
+      <li><a href="#children" data-i18n="toc.9">Children's privacy</a></li>
+      <li><a href="#changes" data-i18n="toc.10">Changes to this policy</a></li>
+      <li><a href="#contact" data-i18n="toc.11">Contact</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section id="summary">
+      <h2><span class="num">01</span><span data-i18n="s1.h2">The short version</span></h2>
+      <div class="callout">
+        <p data-i18n="s1.callout"><strong>Nothing you log in Life Touch ever leaves your phone.</strong> There is no server, no account, and no sign-in. The app works fully offline. It shows you your own raw data — timestamps, frequencies, simple patterns — and never interprets, diagnoses, or gives medical advice. If you want a professional opinion on what your data means, you take it to a doctor or an AI tool of your own choosing; Life Touch doesn't do that part for you.</p>
+      </div>
+      <p data-i18n="s1.p1">The rest of this page spells that out in detail, section by section.</p>
+    </section>
+
+    <section id="data-we-collect">
+      <h2><span class="num">02</span><span data-i18n="s2.h2">Data we collect</span></h2>
+      <p data-i18n="s2.p1">Kabastro, the developer of Life Touch, does not collect, receive, or have access to any of the data you log in the app. We operate no backend server for user data, so there is nothing on our side to collect.</p>
+      <p data-i18n="s2.p2">Everything you enter into the app — habit taps and their timestamps, custom habits you create, notes, body-metric entries (height, weight, BMI), and app settings — is stored locally in the app's private storage on your own device.</p>
+      <div class="ledger">
+        <div class="ledger-row"><span class="label" data-i18n="s2.row1.label">Account or sign-up required</span><span class="val" data-i18n="s2.row1.val">No</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s2.row2.label">Email, phone, or name collected</span><span class="val" data-i18n="s2.row2.val">No</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s2.row3.label">Your habit data sent to a server</span><span class="val" data-i18n="s2.row3.val">No — never</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s2.row4.label">Data shared with third parties</span><span class="val" data-i18n="s2.row4.val">No</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s2.row5.label">Data sold or used for advertising</span><span class="val" data-i18n="s2.row5.val">No</span></div>
+        <div class="ledger-row"><span class="label" data-i18n="s2.row6.label">Works without an internet connection</span><span class="val" data-i18n="s2.row6.val">Yes</span></div>
+      </div>
+      <p data-i18n="s2.p3">If a future version of Life Touch adds an optional feature that does transmit data off your device (for example, an opt-in cloud backup), that feature will be off by default and this policy will be updated to describe it clearly before it ships.</p>
+    </section>
+
+    <section id="on-device">
+      <h2><span class="num">03</span><span data-i18n="s3.h2">On-device &amp; offline by design</span></h2>
+      <p data-i18n="s3.p1">Life Touch does all of its work — logging, timing, statistics, pattern analysis, BMI calculation — directly on your device's processor. None of it is computed in the cloud, because there is no cloud component to compute it in.</p>
+      <p data-i18n="s3.p2">You can use every core feature of the app with your phone in airplane mode. An internet connection is never required to open the app, log a habit, view your timeline, read your statistics, or generate the AI prompt text described below.</p>
+    </section>
+
+    <section id="no-medical-advice">
+      <h2><span class="num">04</span><span data-i18n="s4.h2">No medical advice, diagnosis, or interpretation</span></h2>
+      <div class="callout">
+        <p data-i18n="s4.callout"><strong>Life Touch is a logging and pattern-visibility tool, not a medical device or a diagnostic service.</strong> It does not practice medicine, and nothing in the app should be treated as medical advice.</p>
+      </div>
+      <p data-i18n="s4.p1">When the app shows you a "pattern," a frequency, an average gap, or a BMI number, it is doing simple arithmetic on data you typed in yourself — nothing more. It does not:</p>
+      <ul>
+        <li data-i18n="s4.li1">Diagnose any medical condition</li>
+        <li data-i18n="s4.li2">Tell you whether a pattern is healthy, normal, or concerning</li>
+        <li data-i18n="s4.li3">Recommend treatment, medication, or lifestyle changes</li>
+        <li data-i18n="s4.li4">Analyze your data using any medical or clinical model</li>
+      </ul>
+      <p data-i18n="s4.p2">You are always the one reading the raw numbers and deciding what, if anything, to do with them — including whether to bring them to a doctor.</p>
+    </section>
+
+    <section id="ai-prompt">
+      <h2><span class="num">05</span><span data-i18n="s5.h2">The "clinical AI prompt" feature</span></h2>
+      <p data-i18n="s5.p1">Life Touch can assemble a plain-text summary of your own logged data — for example, frequencies and timing for the habits you choose — worded as a starting prompt that combines an Eastern and Western framing. This feature is a <strong>formatting convenience only</strong>. It does not analyze, interpret, or diagnose anything.</p>
+      <p data-i18n="s5.p2">Here is exactly what happens when you use it:</p>
+      <ul>
+        <li data-i18n="s5.li1">The app reads data that is already on your device and arranges it into readable text.</li>
+        <li data-i18n="s5.li2">That text is shown to you, on your screen, for you to review before doing anything with it.</li>
+        <li data-i18n="s5.li3">You choose whether to copy it, and where — if anywhere — to paste it: a doctor's intake form, a message to a specialist, a third-party AI assistant, or nowhere at all.</li>
+      </ul>
+      <p data-i18n="s5.p3">Generating this text does not send your data anywhere by itself. If you choose to paste it into another app or service, that transfer happens because you did it, on your own device, using your own copy of your own data — and it is then subject to that other service's own privacy terms, not this one.</p>
+    </section>
+
+    <section id="export">
+      <h2><span class="num">06</span><span data-i18n="s6.h2">Exporting your data</span></h2>
+      <p data-i18n="s6.p1">Life Touch lets you export your logged data as a spreadsheet file (.csv). Like everything else in the app, this file is generated locally on your device. Kabastro never receives a copy of it.</p>
+      <p data-i18n="s6.p2">Once the file is created, what happens to it is up to you: your device's own share sheet lets you save it, email it to yourself, upload it to your own cloud storage, or send it to anyone you choose. Life Touch's part ends at putting a correct file in your hands.</p>
+    </section>
+
+    <section id="permissions">
+      <h2><span class="num">07</span><span data-i18n="s7.h2">Device permissions</span></h2>
+      <p data-i18n="s7.p1">Life Touch requests only the device permissions it needs to run its on-device features — for example, storage access so it can save a file when you export your data, and notification access if you turn on optional reminders. None of these permissions are used to collect or transmit your data; they exist purely so the app can read and write to your own device.</p>
+    </section>
+
+    <section id="deletion">
+      <h2><span class="num">08</span><span data-i18n="s8.h2">Deleting your data</span></h2>
+      <p data-i18n="s8.p1">Because your data only ever exists on your device, you are always in complete control of deleting it. Clearing the app's storage (or uninstalling the app) through your phone's settings permanently removes all of your Life Touch data. There is no server-side copy to ask us to delete, and no account to close, because neither exists.</p>
+    </section>
+
+    <section id="children">
+      <h2><span class="num">09</span><span data-i18n="s9.h2">Children's privacy</span></h2>
+      <p data-i18n="s9.p1">Life Touch is not directed at children and is not designed to collect personal information from anyone, of any age — it collects nothing at all, on our end, by design. If you are a parent or guardian with concerns about a child's use of the app, you can review or remove all locally stored data directly from the device at any time, as described above.</p>
+    </section>
+
+    <section id="changes">
+      <h2><span class="num">10</span><span data-i18n="s10.h2">Changes to this policy</span></h2>
+      <p data-i18n="s10.p1">If this policy changes — for instance, if a future version of the app introduces an optional feature that changes how data is handled — we'll update the "Last updated" date at the top of this page and describe the change here before it takes effect.</p>
+    </section>
+
+    <section id="contact">
+      <h2><span class="num">11</span><span data-i18n="s11.h2">Contact</span></h2>
+      <p data-i18n-html="s11.p1">Questions about this policy or about Life Touch generally can be sent to <a href="mailto:habit@kabastro.com">habit@kabastro.com</a>.</p>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-fine" data-i18n="footer.fine">LIFE TOUCH · BUILT BY KABASTRO · DATA STAYS ON YOUR DEVICE</div>
+    <div class="foot-links">
+      <a href="mailto:habit@kabastro.com">habit@kabastro.com</a>
+      <a href="/" data-i18n="nav.back2">Back to site</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var translations = {
+    en: {
+      "nav.back": "← Back to site",
+      "nav.back2": "Back to site",
+      "kicker": "LEGAL",
+      "h1": "Privacy Policy",
+      "updated": "Last updated: September 30, 2026",
+      "lede": "Life Touch is built around one rule: your data stays on your device. This page explains, in plain language, exactly what that means — what the app stores, what it never does, and what happens when you use features like data export or the AI prompt generator.",
+      "toc.title": "ON THIS PAGE",
+      "toc.1": "The short version",
+      "toc.2": "Data we collect",
+      "toc.3": "On-device & offline",
+      "toc.4": "No medical advice",
+      "toc.5": "The AI prompt feature",
+      "toc.6": "Exporting your data",
+      "toc.7": "Device permissions",
+      "toc.8": "Deleting your data",
+      "toc.9": "Children's privacy",
+      "toc.10": "Changes to this policy",
+      "toc.11": "Contact",
+      "s1.h2": "The short version",
+      "s1.callout": "<strong>Nothing you log in Life Touch ever leaves your phone.</strong> There is no server, no account, and no sign-in. The app works fully offline. It shows you your own raw data — timestamps, frequencies, simple patterns — and never interprets, diagnoses, or gives medical advice. If you want a professional opinion on what your data means, you take it to a doctor or an AI tool of your own choosing; Life Touch doesn't do that part for you.",
+      "s1.p1": "The rest of this page spells that out in detail, section by section.",
+      "s2.h2": "Data we collect",
+      "s2.p1": "Kabastro, the developer of Life Touch, does not collect, receive, or have access to any of the data you log in the app. We operate no backend server for user data, so there is nothing on our side to collect.",
+      "s2.p2": "Everything you enter into the app — habit taps and their timestamps, custom habits you create, notes, body-metric entries (height, weight, BMI), and app settings — is stored locally in the app's private storage on your own device.",
+      "s2.row1.label": "Account or sign-up required", "s2.row1.val": "No",
+      "s2.row2.label": "Email, phone, or name collected", "s2.row2.val": "No",
+      "s2.row3.label": "Your habit data sent to a server", "s2.row3.val": "No — never",
+      "s2.row4.label": "Data shared with third parties", "s2.row4.val": "No",
+      "s2.row5.label": "Data sold or used for advertising", "s2.row5.val": "No",
+      "s2.row6.label": "Works without an internet connection", "s2.row6.val": "Yes",
+      "s2.p3": "If a future version of Life Touch adds an optional feature that does transmit data off your device (for example, an opt-in cloud backup), that feature will be off by default and this policy will be updated to describe it clearly before it ships.",
+      "s3.h2": "On-device & offline by design",
+      "s3.p1": "Life Touch does all of its work — logging, timing, statistics, pattern analysis, BMI calculation — directly on your device's processor. None of it is computed in the cloud, because there is no cloud component to compute it in.",
+      "s3.p2": "You can use every core feature of the app with your phone in airplane mode. An internet connection is never required to open the app, log a habit, view your timeline, read your statistics, or generate the AI prompt text described below.",
+      "s4.h2": "No medical advice, diagnosis, or interpretation",
+      "s4.callout": "<strong>Life Touch is a logging and pattern-visibility tool, not a medical device or a diagnostic service.</strong> It does not practice medicine, and nothing in the app should be treated as medical advice.",
+      "s4.p1": "When the app shows you a \"pattern,\" a frequency, an average gap, or a BMI number, it is doing simple arithmetic on data you typed in yourself — nothing more. It does not:",
+      "s4.li1": "Diagnose any medical condition",
+      "s4.li2": "Tell you whether a pattern is healthy, normal, or concerning",
+      "s4.li3": "Recommend treatment, medication, or lifestyle changes",
+      "s4.li4": "Analyze your data using any medical or clinical model",
+      "s4.p2": "You are always the one reading the raw numbers and deciding what, if anything, to do with them — including whether to bring them to a doctor.",
+      "s5.h2": "The \"clinical AI prompt\" feature",
+      "s5.p1": "Life Touch can assemble a plain-text summary of your own logged data — for example, frequencies and timing for the habits you choose — worded as a starting prompt that combines an Eastern and Western framing. This feature is a <strong>formatting convenience only</strong>. It does not analyze, interpret, or diagnose anything.",
+      "s5.p2": "Here is exactly what happens when you use it:",
+      "s5.li1": "The app reads data that is already on your device and arranges it into readable text.",
+      "s5.li2": "That text is shown to you, on your screen, for you to review before doing anything with it.",
+      "s5.li3": "You choose whether to copy it, and where — if anywhere — to paste it: a doctor's intake form, a message to a specialist, a third-party AI assistant, or nowhere at all.",
+      "s5.p3": "Generating this text does not send your data anywhere by itself. If you choose to paste it into another app or service, that transfer happens because you did it, on your own device, using your own copy of your own data — and it is then subject to that other service's own privacy terms, not this one.",
+      "s6.h2": "Exporting your data",
+      "s6.p1": "Life Touch lets you export your logged data as a spreadsheet file (.csv). Like everything else in the app, this file is generated locally on your device. Kabastro never receives a copy of it.",
+      "s6.p2": "Once the file is created, what happens to it is up to you: your device's own share sheet lets you save it, email it to yourself, upload it to your own cloud storage, or send it to anyone you choose. Life Touch's part ends at putting a correct file in your hands.",
+      "s7.h2": "Device permissions",
+      "s7.p1": "Life Touch requests only the device permissions it needs to run its on-device features — for example, storage access so it can save a file when you export your data, and notification access if you turn on optional reminders. None of these permissions are used to collect or transmit your data; they exist purely so the app can read and write to your own device.",
+      "s8.h2": "Deleting your data",
+      "s8.p1": "Because your data only ever exists on your device, you are always in complete control of deleting it. Clearing the app's storage (or uninstalling the app) through your phone's settings permanently removes all of your Life Touch data. There is no server-side copy to ask us to delete, and no account to close, because neither exists.",
+      "s9.h2": "Children's privacy",
+      "s9.p1": "Life Touch is not directed at children and is not designed to collect personal information from anyone, of any age — it collects nothing at all, on our end, by design. If you are a parent or guardian with concerns about a child's use of the app, you can review or remove all locally stored data directly from the device at any time, as described above.",
+      "s10.h2": "Changes to this policy",
+      "s10.p1": "If this policy changes — for instance, if a future version of the app introduces an optional feature that changes how data is handled — we'll update the \"Last updated\" date at the top of this page and describe the change here before it takes effect.",
+      "s11.h2": "Contact",
+      "s11.p1": "Questions about this policy or about Life Touch generally can be sent to <a href=\"mailto:habit@kabastro.com\">habit@kabastro.com</a>.",
+      "footer.fine": "LIFE TOUCH · BUILT BY KABASTRO · DATA STAYS ON YOUR DEVICE"
+    },
+    vi: {
+      "nav.back": "← Về trang chủ",
+      "nav.back2": "Về trang chủ",
+      "kicker": "PHÁP LÝ",
+      "h1": "Chính Sách Bảo Mật",
+      "updated": "Cập nhật lần cuối: 30 tháng 9, 2026",
+      "lede": "Life Touch được xây dựng theo một nguyên tắc duy nhất: dữ liệu của bạn ở lại trên thiết bị của bạn. Trang này giải thích, bằng ngôn ngữ đơn giản, chính xác điều đó nghĩa là gì — app lưu trữ những gì, app không bao giờ làm gì, và điều gì xảy ra khi bạn dùng các tính năng như xuất dữ liệu hay tạo prompt AI.",
+      "toc.title": "TRONG TRANG NÀY",
+      "toc.1": "Tóm tắt ngắn gọn",
+      "toc.2": "Dữ liệu chúng tôi thu thập",
+      "toc.3": "Trên thiết bị & offline",
+      "toc.4": "Không tư vấn y khoa",
+      "toc.5": "Tính năng prompt AI",
+      "toc.6": "Xuất dữ liệu của bạn",
+      "toc.7": "Quyền truy cập thiết bị",
+      "toc.8": "Xoá dữ liệu của bạn",
+      "toc.9": "Quyền riêng tư trẻ em",
+      "toc.10": "Thay đổi chính sách này",
+      "toc.11": "Liên hệ",
+      "s1.h2": "Tóm tắt ngắn gọn",
+      "s1.callout": "<strong>Không có gì bạn ghi trong Life Touch từng rời khỏi điện thoại của bạn.</strong> Không có máy chủ, không có tài khoản, không cần đăng nhập. App hoạt động hoàn toàn offline. Nó chỉ hiện cho bạn xem dữ liệu thô của chính bạn — thời điểm, tần suất, các quy luật đơn giản — và không bao giờ luận giải, chẩn đoán hay đưa lời khuyên y khoa. Nếu bạn muốn một ý kiến chuyên môn về ý nghĩa dữ liệu của mình, bạn tự mang nó đi hỏi bác sĩ hoặc một công cụ AI bạn chọn; Life Touch không làm phần đó thay bạn.",
+      "s1.p1": "Phần còn lại của trang này sẽ nói rõ từng mục một, chi tiết hơn.",
+      "s2.h2": "Dữ liệu chúng tôi thu thập",
+      "s2.p1": "Kabastro, đơn vị phát triển Life Touch, không thu thập, không nhận, và không có quyền truy cập vào bất kỳ dữ liệu nào bạn ghi trong app. Chúng tôi không vận hành máy chủ backend nào cho dữ liệu người dùng, nên phía chúng tôi không có gì để thu thập.",
+      "s2.p2": "Mọi thứ bạn nhập vào app — các lượt chạm thói quen và thời điểm của chúng, các thói quen tuỳ chỉnh bạn tạo, ghi chú, các chỉ số cơ thể (chiều cao, cân nặng, BMI), và cài đặt app — đều được lưu cục bộ trong bộ nhớ riêng của app, ngay trên thiết bị của bạn.",
+      "s2.row1.label": "Cần tài khoản hoặc đăng ký", "s2.row1.val": "Không",
+      "s2.row2.label": "Thu thập email, số điện thoại, hoặc tên", "s2.row2.val": "Không",
+      "s2.row3.label": "Dữ liệu thói quen gửi lên máy chủ", "s2.row3.val": "Không — không bao giờ",
+      "s2.row4.label": "Chia sẻ dữ liệu với bên thứ ba", "s2.row4.val": "Không",
+      "s2.row5.label": "Bán dữ liệu hoặc dùng cho quảng cáo", "s2.row5.val": "Không",
+      "s2.row6.label": "Hoạt động được khi không có mạng", "s2.row6.val": "Có",
+      "s2.p3": "Nếu một phiên bản Life Touch trong tương lai bổ sung tính năng tuỳ chọn có truyền dữ liệu ra khỏi thiết bị của bạn (ví dụ: sao lưu đám mây tuỳ chọn), tính năng đó sẽ mặc định tắt và chính sách này sẽ được cập nhật để mô tả rõ ràng trước khi phát hành.",
+      "s3.h2": "Trên thiết bị & hoạt động offline theo thiết kế",
+      "s3.p1": "Life Touch thực hiện mọi tác vụ — ghi nhận, tính giờ, thống kê, phân tích quy luật, tính BMI — trực tiếp trên bộ xử lý thiết bị của bạn. Không có phần nào được tính toán trên đám mây, vì đơn giản là không có thành phần đám mây nào để tính toán trong đó.",
+      "s3.p2": "Bạn có thể dùng mọi tính năng cốt lõi của app khi điện thoại ở chế độ máy bay. Không bao giờ cần kết nối internet để mở app, ghi nhận một thói quen, xem dòng thời gian, đọc thống kê, hay tạo đoạn prompt AI được mô tả bên dưới.",
+      "s4.h2": "Không tư vấn, chẩn đoán hay luận giải y khoa",
+      "s4.callout": "<strong>Life Touch là công cụ ghi nhận và hiển thị quy luật, không phải thiết bị y tế hay dịch vụ chẩn đoán.</strong> Không có gì trong app nên được xem là lời khuyên y khoa.",
+      "s4.p1": "Khi app hiện cho bạn một \"quy luật\", một tần suất, một khoảng cách trung bình, hay một chỉ số BMI, nó chỉ đang làm phép tính số học đơn giản trên dữ liệu chính bạn đã tự nhập — không hơn không kém. App không:",
+      "s4.li1": "Chẩn đoán bất kỳ tình trạng y khoa nào",
+      "s4.li2": "Nói cho bạn biết một quy luật là khoẻ mạnh, bình thường, hay đáng lo ngại",
+      "s4.li3": "Đề xuất điều trị, thuốc men, hay thay đổi lối sống",
+      "s4.li4": "Phân tích dữ liệu của bạn bằng bất kỳ mô hình y khoa hay lâm sàng nào",
+      "s4.p2": "Bạn luôn là người đọc những con số thô đó và tự quyết định nên làm gì với chúng — kể cả việc có mang đi hỏi bác sĩ hay không.",
+      "s5.h2": "Tính năng \"prompt AI lâm sàng\"",
+      "s5.p1": "Life Touch có thể gộp một đoạn tóm tắt dạng văn bản từ chính dữ liệu bạn đã ghi — ví dụ: tần suất và thời điểm cho các thói quen bạn chọn — được viết thành một đoạn mở đầu kết hợp góc nhìn Đông y và Tây y. Tính năng này chỉ là một <strong>tiện ích định dạng lại văn bản</strong>. Nó không phân tích, không luận giải, và không chẩn đoán bất cứ điều gì.",
+      "s5.p2": "Đây chính xác là những gì xảy ra khi bạn dùng tính năng này:",
+      "s5.li1": "App đọc dữ liệu đã có sẵn trên thiết bị của bạn và sắp xếp nó thành văn bản dễ đọc.",
+      "s5.li2": "Văn bản đó được hiển thị trên màn hình của bạn, để bạn xem lại trước khi làm bất cứ điều gì với nó.",
+      "s5.li3": "Bạn tự chọn có sao chép nó hay không, và dán vào đâu — nếu có: một mẫu khai báo của bác sĩ, tin nhắn gửi chuyên gia, một trợ lý AI bên thứ ba, hoặc không dán vào đâu cả.",
+      "s5.p3": "Việc tạo ra đoạn văn bản này không tự động gửi dữ liệu của bạn đi đâu cả. Nếu bạn chọn dán nó vào một app hay dịch vụ khác, việc chuyển giao đó xảy ra vì chính bạn đã làm điều đó, trên thiết bị của bạn, với bản sao dữ liệu của chính bạn — và khi đó nó sẽ chịu sự điều chỉnh của chính sách quyền riêng tư của dịch vụ đó, không phải của chính sách này.",
+      "s6.h2": "Xuất dữ liệu của bạn",
+      "s6.p1": "Life Touch cho phép bạn xuất dữ liệu đã ghi thành file bảng tính (.csv). Cũng như mọi thứ khác trong app, file này được tạo ra cục bộ ngay trên thiết bị của bạn. Kabastro không bao giờ nhận được bản sao của file đó.",
+      "s6.p2": "Sau khi file được tạo, điều gì xảy ra tiếp theo là tuỳ bạn: cơ chế chia sẻ của thiết bị cho phép bạn lưu file, gửi email cho chính mình, tải lên dịch vụ đám mây riêng, hoặc gửi cho bất kỳ ai bạn muốn. Phần việc của Life Touch kết thúc ở việc đưa đúng file đó vào tay bạn.",
+      "s7.h2": "Quyền truy cập thiết bị",
+      "s7.p1": "Life Touch chỉ yêu cầu những quyền thiết bị cần thiết cho các tính năng chạy trên máy — ví dụ: quyền truy cập bộ nhớ để lưu file khi bạn xuất dữ liệu, và quyền thông báo nếu bạn bật nhắc nhở tuỳ chọn. Không quyền nào trong số này được dùng để thu thập hay truyền dữ liệu của bạn đi; chúng chỉ tồn tại để app có thể đọc và ghi trên chính thiết bị của bạn.",
+      "s8.h2": "Xoá dữ liệu của bạn",
+      "s8.p1": "Vì dữ liệu của bạn chỉ tồn tại trên thiết bị của bạn, bạn luôn có toàn quyền kiểm soát việc xoá nó. Xoá bộ nhớ của app (hoặc gỡ cài đặt app) qua cài đặt điện thoại sẽ xoá vĩnh viễn toàn bộ dữ liệu Life Touch của bạn. Không có bản sao nào trên máy chủ để yêu cầu chúng tôi xoá, và cũng không có tài khoản nào để đóng, vì cả hai đều không tồn tại.",
+      "s9.h2": "Quyền riêng tư trẻ em",
+      "s9.p1": "Life Touch không hướng đến trẻ em và không được thiết kế để thu thập thông tin cá nhân của bất kỳ ai, ở bất kỳ độ tuổi nào — về phía chúng tôi, app không thu thập gì cả, theo đúng thiết kế. Nếu bạn là phụ huynh hoặc người giám hộ có lo ngại về việc trẻ sử dụng app, bạn có thể xem lại hoặc xoá toàn bộ dữ liệu lưu cục bộ trực tiếp trên thiết bị bất cứ lúc nào, như đã mô tả ở trên.",
+      "s10.h2": "Thay đổi đối với chính sách này",
+      "s10.p1": "Nếu chính sách này thay đổi — ví dụ, nếu một phiên bản app trong tương lai bổ sung tính năng tuỳ chọn làm thay đổi cách xử lý dữ liệu — chúng tôi sẽ cập nhật ngày \"Cập nhật lần cuối\" ở đầu trang này và mô tả thay đổi đó ở đây trước khi nó có hiệu lực.",
+      "s11.h2": "Liên hệ",
+      "s11.p1": "Mọi câu hỏi về chính sách này hoặc về Life Touch nói chung có thể gửi tới <a href=\"mailto:habit@kabastro.com\">habit@kabastro.com</a>.",
+      "footer.fine": "LIFE TOUCH · XÂY DỰNG BỞI KABASTRO · DỮ LIỆU Ở LẠI TRÊN THIẾT BỊ CỦA BẠN"
+    }
+  };
+
+  var STORAGE_KEY = "lifetouch-lang";
+
+  function applyLanguage(lang){
+    if(!translations[lang]) lang = "en";
+    var dict = translations[lang];
+    document.documentElement.lang = lang;
+
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var key = el.getAttribute("data-i18n");
+      if(dict[key] !== undefined) el.textContent = dict[key];
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function(el){
+      var key = el.getAttribute("data-i18n-html");
+      if(dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll("[data-lang-btn]").forEach(function(btn){
+      var isActive = btn.getAttribute("data-lang-btn") === lang;
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    try{ localStorage.setItem(STORAGE_KEY, lang); }catch(e){}
+  }
+
+  function initialLanguage(){
+    try{
+      var saved = localStorage.getItem(STORAGE_KEY);
+      if(saved === "en" || saved === "vi") return saved;
+    }catch(e){}
+    return "en";
+  }
+
+  document.querySelectorAll("[data-lang-btn]").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      applyLanguage(btn.getAttribute("data-lang-btn"));
+    });
+  });
+
+  applyLanguage(initialLanguage());
+})();
+</script>
+</body>
+</html>
